@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Bienvenu</h2>
+{{form_start(form)}}
+
+     {{form_row(form.nom)}}
+     {{form_row(form.prenom)}}
+     {# {{dump(form)}} #}
+     <div class="col-sm-8 col-sm-offset-2" id="sportList" data-prototype="{{form_widget(form.sports.vars.prototype)|e('html_attr')}}">
+        {% for row in form.sports %}
+                <div class="panel panel-warning">
+                    
+                    <div class="panel-body">
+                        {{ form_row(row) }}
+                    </div>
+                </div>
+            {% endfor %}    
+     </div>
+
+{{form_end(form)}}
+
+{% endblock %}
